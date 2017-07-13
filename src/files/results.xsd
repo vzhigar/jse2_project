@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:element name="results">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="student" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="login" type="xsd:string">
+                                <xsd:simpleType>
+                                    <xsd:restriction base = "xsd:string">
+                                        <xsd:pattern value="[a-zA-Z][a-zA-Z0-9][a-zA-Z0-9]+"></xsd:pattern>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="tests">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="test" maxOccurs="unbounded">
+                                            <xsd:complexType>
+                                                <xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+                                                <xsd:attribute name="date" type="xsd:date"></xsd:attribute>
+                                                <xsd:attribute name="mark" type="xsd:double">
+                                                    <xsd:simpleType>
+                                                        <xsd:restriction base="xsd:double">
+                                                            <xsd:pattern value="[0-9][.][0-9]{1}|10.0"></xsd:pattern>
+                                                        </xsd:restriction>
+                                                    </xsd:simpleType>
+                                                </xsd:attribute>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
